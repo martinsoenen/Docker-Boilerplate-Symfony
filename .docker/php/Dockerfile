@@ -10,6 +10,11 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer --version
 
+# Install NPM
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
+RUN apt-get install nodejs -y
+RUN node -v && npm -v
+
 # Remove APT cache
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
