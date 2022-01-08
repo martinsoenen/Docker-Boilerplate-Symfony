@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:8.1-fpm
 WORKDIR "/application"
 
 # Install selected extensions and other stuff
@@ -11,7 +11,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer --version
 
 # Install NPM
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 RUN apt-get install nodejs -y
 RUN node -v && npm -v
 
